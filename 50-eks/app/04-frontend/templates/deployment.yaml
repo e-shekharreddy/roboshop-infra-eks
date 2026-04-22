@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: roboshop
+  # these labels are replicaset labels
+  labels:
+    project: roboshop
+    tier: frontend
+    component: frontend
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    # using these labels replica set selects the pod
+    matchLabels:
+      project: roboshop
+      tier: frontend
+      component: frontend
+  # This is pod definition, pod is subset of replicaset
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: frontend
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: "{{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always # safe to pull everytime, there may be images with same version rebuilt and pushed
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+        readinessProbe:
+          # httpGet:
+          #   path: /health
+          #   port: 8080
+          tcpSocket:
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+        envFrom:
+        - configMapRef:
+            name: frontend

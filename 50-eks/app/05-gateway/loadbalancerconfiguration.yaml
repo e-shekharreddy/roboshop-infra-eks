@@ -1,0 +1,8 @@
+apiVersion: gateway.k8s.aws/v1beta1
+kind: LoadBalancerConfiguration
+metadata:
+  name: roboshop-aws-alb-config
+  namespace: roboshop
+spec:
+  scheme: internet-facing
+  ipAddressType: ipv4

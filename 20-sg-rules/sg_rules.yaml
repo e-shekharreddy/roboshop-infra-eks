@@ -1,0 +1,47 @@
+bastion:
+- name: bastion_internet
+  port: 22
+  src: internet 
+  dest: bastion
+mongodb:
+- name: mongodb_bastion
+  port: 22
+  src : bastion
+  dest: mongodb
+
+- name: mongodb_catalog # mongodb accepting connection from catalogue
+  port: 27017
+  src: catalogue
+  dest: mongodb
+
+- name: mongodb_user # mongodb accepting connection from user
+  port: 27017
+  src: user
+  dest: mongodb
+
+- name: redis_bastion
+  port: 22
+  src : bastion
+  dest: redis
+
+
+- name: mysql_bastion
+  port: 22
+  src : bastion
+  dest: mysql
+
+
+- name: rabbitmq_bastion
+  port: 22
+  src : bastion
+  dest: rabbitmq
+
+- name: rabbitmq_bastion
+  port: 22
+  src : bastion
+  dest: backend_alb
+
+  - name: frontend_alb
+  port: 443
+  src : cidr_blocks
+  dest: frontend_alb

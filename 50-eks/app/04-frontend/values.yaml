@@ -1,0 +1,6 @@
+deployment:
+  replicas: "1"
+  imageName: "esrasd/frontend"
+  imageVersion: "1.3.0"
+ingress:
+  host: "roboshop-dev.tsmvr.fun"

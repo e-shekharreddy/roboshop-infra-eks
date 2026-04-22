@@ -1,0 +1,5 @@
+apiVersion: v2 # K8S Helm related
+name: shipping
+version: 0.0.1 # This is chart version
+appVersion: 1.0.0 # This is application version like catalogue version
+description: "installing 1.0.0"

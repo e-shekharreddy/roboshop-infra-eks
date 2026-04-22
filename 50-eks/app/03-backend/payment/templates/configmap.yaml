@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: payment
+data:
+  CART_HOST: {{ .Values.configMap.CART_HOST }}
+  CART_PORT: "{{ .Values.configMap.CART_PORT }}"
+  USER_HOST: {{ .Values.configMap.USER_HOST }}
+  USER_PORT: "{{ .Values.configMap.USER_PORT }}"
+  AMQP_HOST: {{ .Values.configMap.AMQP_HOST }}
+  AMQP_USER: {{ .Values.configMap.AMQP_USER }}
+  AMQP_PASS: {{ .Values.configMap.AMQP_PASS }}

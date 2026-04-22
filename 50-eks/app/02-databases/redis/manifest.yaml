@@ -1,0 +1,83 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-headless
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: db
+    component: redis
+spec:
+  clusterIP: None
+  selector:
+    # labels are used as selectors
+    project: roboshop
+    tier: db
+    component: redis
+  ports:
+  - protocol: TCP
+    port: 6379 # servie port
+    targetPort: 6379 # container port
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+  namespace: roboshop
+  labels: 
+    project: roboshop
+    tier: db
+    component: redis
+spec:
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: db
+      component: redis
+  serviceName: "redis-headless" # we should attach headless service
+  #replicas: 3
+  replicas: 1 # by default is 1
+  # Pod definition
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: db
+        component: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.0
+        volumeMounts:
+        - name: redis
+          mountPath: /data
+  # PVC
+  volumeClaimTemplates:
+  - metadata:
+      name: redis
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "roboshop-ebs"
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: db
+    component: redis
+spec:
+  selector:
+    # labels are used as selectors
+    project: roboshop
+    tier: db
+    component: redis
+  ports:
+  - protocol: TCP
+    port: 6379 # servie port
+    targetPort: 6379 # container port

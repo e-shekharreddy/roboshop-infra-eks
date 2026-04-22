@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: roboshop
+  # these labels are replicaset labels
+  labels:
+    project: roboshop
+    tier: backend
+    component: shipping
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    # using these labels replica set selects the pod
+    matchLabels:
+      project: roboshop
+      tier: backend
+      component: shipping
+  # This is pod definition, pod is subset of replicaset
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: backend
+        component: shipping
+    spec:
+      containers:
+      - name: shipping
+        image: "{{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always # safe to pull everytime, there may be images with same version rebuilt and pushed
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "300m"
+            memory: "512Mi"
+        readinessProbe:
+          # httpGet:
+          #   path: /health
+          #   port: 8080
+          tcpSocket:
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 120
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 120
+        envFrom:
+        - configMapRef:
+            name: shipping

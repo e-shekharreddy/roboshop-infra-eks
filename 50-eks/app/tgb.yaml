@@ -1,0 +1,15 @@
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: frontend
+    tier: frontend
+spec:
+  targetType: ip
+  serviceRef:
+    name: frontend # route traffic to the awesome-service
+    port: 80
+  targetGroupARN: arn:aws:elasticloadbalancing:us-east-1:764694154057:targetgroup/roboshop-dev-frontend/7e8b5451943a3079
