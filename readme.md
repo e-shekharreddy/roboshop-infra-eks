@@ -60,8 +60,10 @@ kubectl apply -f rabbitmq/manifest.yaml
 We are using MySQL as an RDS service. Make sure it is created, data is loaded through the bastion, and an SG rule exists in RDS to accept traffic from the EKS nodes.
 
 Transfer the database files to bastion and then load them:
-```bash
+``` bash
 mysql -h <end-point> -u root -PRoboShop#123
+mysql -h <end-point> -u root -PRoboShop#123 < /tmp/app-user.sql
+mysql -h <end-point> -u root -PRoboShop#123 < /tmp/master-data.sql
 ```
 
 ## Stateless Apps
