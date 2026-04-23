@@ -1,6 +1,6 @@
 configMap:
   CART_ENDPOINT: "cart:8080"
-  DB_HOST: "roboshop-dev.cw1eikkk698o.us-east-1.rds.amazonaws.com"
+  DB_HOST: "roboshop-dev.cofguya2cmj5.us-east-1.rds.amazonaws.com"
 deployment:
   replicas: "1"
   imageName: "esrasd/shipping"
