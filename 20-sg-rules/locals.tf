@@ -12,5 +12,7 @@ locals {
     eks_control_plane_sg_id = data.aws_ssm_parameter.eks_control_plane_sg_id.value
     eks_node_sg_id = data.aws_ssm_parameter.eks_node_sg_id.value
     openvpn_sg_id = data.aws_ssm_parameter.openvpn_sg_id.value
-    
+    jenkins_sg_id = data.aws_ssm_parameter.jenkins_sg_id.value
+    jenkins_agent_sg_id = data.aws_ssm_parameter.jenkins_agent_sg_id.value
+    # sonar_sg_id = data.aws_ssm_parameter.sonar_sg_id.value
 }

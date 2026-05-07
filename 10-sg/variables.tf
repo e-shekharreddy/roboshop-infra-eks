@@ -31,6 +31,12 @@ variable "sg_names" {
 
       # EKS cluster
       "eks_control_plane",
-      "eks_node"
+      "eks_node",
+      
+      "jenkins",
+      "jenkins_agent",
+      
+      # "sonar"
+
    ]
 }
