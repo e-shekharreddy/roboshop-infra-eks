@@ -6,6 +6,18 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = [local.jenkins_sg_id]
   user_data = file("jenkins.sh")
 
+
+  root_block_device {
+    volume_size = 50
+    volume_type = "gp3"
+    tags = merge(
+      {
+          Name = "${var.project}-${var.environment}-jenkins"
+      },
+    local.common_tags
+    )
+  }
+  
   tags = merge(
     {
         Name = "${var.project}-${var.environment}-jenkins"
