@@ -17,3 +17,8 @@ variable "domain_name" {
 # variable "sonar" {
 #     default = true
 # }
+
+
+variable "jenkins" {
+    default = true
+}
