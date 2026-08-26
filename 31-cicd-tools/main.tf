@@ -1,4 +1,5 @@
 resource "aws_instance" "jenkins" {
+  count = var.jenkins ? 1 : 0
   ami           = local.ami_id
   instance_type = "t3.small"
   subnet_id = local.public_subnet_id
