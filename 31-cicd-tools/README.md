@@ -10,7 +10,7 @@ Terraform configuration to provision CI/CD infrastructure for the **roboshop** p
 |---|---|---|---|
 | Jenkins Server | `t3.small` | Redhat-9-DevOps-Practice | Placed in public subnet; Jenkins installed via `jenkins.sh` |
 | Jenkins Agent | `t3.micro` | Redhat-9-DevOps-Practice | 50 GB gp3 root volume; Java installed via `jenkins-agent.sh` |
-| SonarQube Server | `t3.large` | SolveDevOps-SonarQube-Server-Ubuntu24.04 | 20 GB gp3 root volume; conditional on `var.sonar` (default: `true`) |
+| SonarQube Server | `t3.medium` | Manually create `EC2 Instance` by selecting Ubuntu | 20 GB gp3 root volume; refer repo: `SonarQube-terraform` in my github  |
 
 ### Route 53 DNS Records
 
