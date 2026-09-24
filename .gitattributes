@@ -1,0 +1,8 @@
+# Auto-detect text files and normalize line endings to LF automatically
+* text=auto
+
+# Force Linux-style LF line endings for all Terraform configurations and lock files
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+.terraform.lock.hcl text eol=lf
