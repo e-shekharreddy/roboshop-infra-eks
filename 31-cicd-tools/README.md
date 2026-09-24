@@ -57,6 +57,7 @@ Once you setup and login to jenkins.
 * Sonarqube scanner
 * Multibranch Scan Webhook Trigger
 * Generic Webhook Trigger
+* Rebuilder
 
 ### Credentials
 * ssh-creds
