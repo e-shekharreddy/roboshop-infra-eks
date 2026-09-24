@@ -58,6 +58,7 @@ Once you setup and login to jenkins.
 * Multibranch Scan Webhook Trigger
 * Generic Webhook Trigger
 * Rebuilder
+* JIRA Pipeline Steps
 
 ### Credentials
 * ssh-creds
