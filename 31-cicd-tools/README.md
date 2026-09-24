@@ -56,6 +56,7 @@ Once you setup and login to jenkins.
 * AWS Steps
 * Sonarqube scanner
 * Multibranch Scan Webhook Trigger
+* Generic Webhook Trigger
 
 ### Credentials
 * ssh-creds
