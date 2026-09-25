@@ -59,7 +59,7 @@ resource "aws_instance" "jenkins_agent" {
 #   instance_type = "t3.large"
 #   vpc_security_group_ids = [local.sonar_sg_id]
 #   subnet_id = local.public_subnet_id #replace your Subnet in default VPC
-#   key_name = "daws-88s"
+#   key_name = "myRSAkey"
 #   # need more for terraform
 #   root_block_device {
 #     volume_size = 20

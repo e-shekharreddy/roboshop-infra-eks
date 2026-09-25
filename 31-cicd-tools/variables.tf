@@ -15,7 +15,7 @@ variable "domain_name" {
 }
 
 # variable "sonar" {
-#     default = true
+#     default = false
 # }
 
 
