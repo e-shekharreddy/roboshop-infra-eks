@@ -1,7 +1,7 @@
 resource "aws_instance" "jenkins" {
   count = var.jenkins ? 1 : 0
   ami           = local.ami_id
-  instance_type = "t3.small"
+  instance_type = "t3.micro"
   subnet_id = local.public_subnet_id
   vpc_security_group_ids = [local.jenkins_sg_id]
   user_data = file("jenkins.sh")
