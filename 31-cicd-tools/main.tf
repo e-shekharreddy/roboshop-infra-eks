@@ -6,6 +6,14 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = [local.jenkins_sg_id]
   user_data = file("jenkins.sh")
 
+  instance_market_options {
+    market_type = "spot"
+
+    spot_options {
+      spot_instance_type             = "one-time" # "persistent"
+      instance_interruption_behavior = "terminate" # "stop"
+    }
+  }
 
   root_block_device {
     volume_size = 50
@@ -34,6 +42,15 @@ resource "aws_instance" "jenkins_agent" {
   subnet_id = local.public_subnet_id
   vpc_security_group_ids = [local.jenkins_sg_id]
   user_data = file("jenkins-agent.sh")
+
+  instance_market_options {
+    market_type = "spot"
+
+    spot_options {
+      spot_instance_type             = "one-time" # "persistent"
+      instance_interruption_behavior = "terminate" # "stop"
+    }
+  }
 
   root_block_device {
     volume_size = 50
