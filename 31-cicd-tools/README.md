@@ -64,10 +64,20 @@ Once you setup and login to jenkins.
 * ssh-creds
 * aws-creds
 * sonar-creds
+* github-token
+    * Create fine grained token
+    * Under profile -> Settings -> Developer Settings -> Fine grained token
+    * Select all repos (or) selected repos
+    * Permissions
+        * Dependabot alerts -> Read
+        * Commit statuses -> Read and Write
+        * Code -> Read and Write
+* jira-creds (JIRA free trail)
 
 ### Master Node architecture
-* jenkins agent is jenkins-agent.daws88s.online
+* jenkins-agent
 * roboshop as label
+
 
 # Sonar
 
