@@ -78,6 +78,8 @@ Once you setup and login to jenkins.
 * jenkins-agent
 * roboshop as label
 
+# Jenkins shared library
+* configure jenkins-shared-library repo in Manage Jenkins -> System -> Global trusted library section
 
 # Sonar
 
@@ -87,10 +89,6 @@ Once you setup and login to jenkins.
 * Webhook
 * Standard mode
 * Quality gate creation
-
-
-# Jenkins shared library
-* configure jenkins-shared-library repo in Manage Jenkins -> System -> Global trusted library section
 
 ### 🐞 Bugs
 
