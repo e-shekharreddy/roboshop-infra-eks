@@ -81,12 +81,16 @@ Once you setup and login to jenkins.
 
 # Sonar
 
-* Scanner Tool configuration
-* Server configuration in system
-* Authentication token
+* Scanner Tool configuration -> sonar-8
+* Server configuration in system -> sonar-server
+* Sonar Authentication token
 * Webhook
 * Standard mode
 * Quality gate creation
+
+
+# Jenkins shared library
+* configure jenkins-shared-library repo in Manage Jenkins -> System -> Global trusted library section
 
 ### 🐞 Bugs
 
