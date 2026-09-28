@@ -20,5 +20,13 @@ variable "domain_name" {
 
 
 variable "jenkins" {
-    default = true
+    default = false
+}
+
+variable "jenkins_agent" {
+    default = false
+}
+
+variable "runner" {
+  default = true
 }

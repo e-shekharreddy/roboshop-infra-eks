@@ -36,6 +36,7 @@ variable "sg_names" {
       "jenkins",
       "jenkins_agent",
       
+      "runner",
       # "sonar"
 
    ]
