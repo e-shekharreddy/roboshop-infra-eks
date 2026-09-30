@@ -9,12 +9,15 @@ xfs_growfs /var
 xfs_growfs /home
 xfs_growfs /
 
-# Java
-yum install fontconfig java-21-openjdk -y
+# Java and Maven
+dnf install maven -y
 
 # NodeJS
 dnf module enable nodejs:20 -y
 dnf install nodejs -y
+
+# Install python3
+dnf install python3 gcc python3-devel -y
 
 # Docker
 dnf -y install dnf-plugins-core
