@@ -9,7 +9,7 @@ resource "aws_route53_record" "jenkins" {
 }
 
 resource "aws_route53_record" "jenkins_agent" {
-  count = var.jenkins ? 1 : 0
+  count = var.jenkins_agent ? 1 : 0
   zone_id = var.zone_id
   name    = "jenkins-agent.${var.domain_name}"
   type    = "A"
