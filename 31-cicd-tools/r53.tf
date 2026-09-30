@@ -18,7 +18,15 @@ resource "aws_route53_record" "jenkins_agent" {
   allow_overwrite = true
 }
 
-
+resource "aws_route53_record" "runner" {
+  count = var.jenkins ? 1 : 0
+  zone_id = var.zone_id
+  name    = "runner.${var.domain_name}"
+  type    = "A"
+  ttl     = "1"
+  records = [aws_instance.runner[0].private_ip]
+  allow_overwrite = true
+}
 
 
 # resource "aws_route53_record" "sonarqube" {
