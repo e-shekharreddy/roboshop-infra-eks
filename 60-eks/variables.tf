@@ -7,7 +7,7 @@ variable "environment" {
 }
 
 variable "eks_version" {
-  default = "1.34"
+  default = "1.37"
 }
 
 variable "enable_blue" {
