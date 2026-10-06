@@ -6,6 +6,15 @@ resource "aws_instance" "bastion" {
   iam_instance_profile = aws_iam_instance_profile.bastion.name
   user_data = file("bastion.sh")
 
+  instance_market_options {
+    market_type = "spot"
+
+    spot_options {
+      spot_instance_type             = "one-time" # "persistent"
+      instance_interruption_behavior = "terminate" # "stop"
+    }
+  }
+
   root_block_device {
     volume_size = 50
     volume_type = "gp3"
