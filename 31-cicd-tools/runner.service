@@ -13,3 +13,4 @@ Restart=always
 WantedBy=multi-user.target
 
 # sudo vim /etc/systemd/system/runner.service
+# sudo systemctl restart runner
